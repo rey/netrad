@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# netrad.sh
+# netrad.sh 0.1
 #
 # About
 # --
