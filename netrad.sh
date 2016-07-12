@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# netrad.sh 0.1
+# Network Radio 0.1
 #
 # About
 # --
-# Posts some handy info about your box to a Slack channel.
+# netrad.sh posts some handy info about your box to a Slack channel.
 #
 # Install
 # --
