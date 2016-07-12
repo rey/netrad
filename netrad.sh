@@ -4,6 +4,10 @@
 # net radio will post some handy info to a Slack room about what your box is
 # doing, maybe.
 
+
+# Create an Incoming Webhook at
+# https://zzmag.slack.com/apps/A0F7XDUAZ-incoming-webhooks
+# Then paste the slug below
 SLUG=
 
 function getOS() {
