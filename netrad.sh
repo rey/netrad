@@ -52,10 +52,15 @@ function getDiskSpace() {
   DISK_SPACE=`df -h | grep ^/dev/ | awk '{print "  ", $1":", $3, "of", $2, "used"}'`
 }
 
-# TODO
 # Get the internal IP address
 function getInternalIP() {
-  INTERNAL_IP=`ifconfig wlan0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`
+  if [ ${OS} = "Darwin" ]; then
+    # Not sure how great this is but it works and this script isn't _really_
+    # intended for use on macOS!
+    INTERNAL_IP=`ipconfig getifaddr en0`
+  else
+    INTERNAL_IP=`ifconfig wlan0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`
+  fi
 }
 
 # Get the external IP address
@@ -82,6 +87,7 @@ ${HOSTNAME} (Up ${UPTIME})
 ---
 OS: ${DISTRO}
 Time: ${SERVER_TIME}
+Internal IP: ${INTERNAL_IP}
 External IP: ${EXTERNAL_IP}
 Disk space:
 ${DISK_SPACE}
@@ -109,7 +115,7 @@ getDistro
 getServerTime
 getUptime
 getDiskSpace
-# getInternalIP
+getInternalIP
 getExternalIP
 createAvatar
 createRadioMessage
